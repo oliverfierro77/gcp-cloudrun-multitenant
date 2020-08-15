@@ -1,0 +1,38 @@
+spring:
+  application:
+    name: order-cloudrun-dataclean
+  jpa:
+    database: POSTGRESQL
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    generate-ddl: false
+    hibernate:
+      ddl-auto: none
+  autoconfigure:
+    exclude:
+      - org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+      - org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration
+      - org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration
+
+#Multicountry database connections
+multitenancy:
+  dataclean:
+    dataSources:
+      -
+        tenantId: CL
+      -
+        tenantId: AR
+      #add more tenantId (prefix of country)
+      #-
+        #tenandId: XX
+
+gcp:
+  project: '${PROJECT_ID}'
+  secrets:
+    versionId: 1
+
+management:
+  endpoints:
+    enabled-by-default: false
+  endpoint:
+    health:
+      enabled: true-atu
