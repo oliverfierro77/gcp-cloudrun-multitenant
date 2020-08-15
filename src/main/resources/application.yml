@@ -35,4 +35,4 @@ management:
     enabled-by-default: false
   endpoint:
     health:
-      enabled: true-atu
+      enabled: true
